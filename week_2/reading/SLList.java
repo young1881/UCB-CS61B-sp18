@@ -16,7 +16,7 @@ public class SLList<Type> {
 
     private int size;
     /* The first item (if it exists) is at sentinel.next*/
-    private TypeNode sentinel;
+    private final TypeNode sentinel;
 
     public SLList(){
         sentinel = new TypeNode(null, null);
@@ -58,7 +58,7 @@ public class SLList<Type> {
 //    }
 
     public static void main(String[] args) {
-        SLList<Integer> L = new SLList<Integer>(15);
+        SLList<Integer> L = new SLList<>(15);
         L.addFirst(10);
         L.addFirst(5);
         L.addLast(20);
