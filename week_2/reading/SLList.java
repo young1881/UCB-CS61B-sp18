@@ -3,12 +3,12 @@ package reading;
 /** An reading.SLList is a list of integers, which hides the terrble
  * truth of the nakedness within.
  */
-public class SLList {
-    private static class IntNode {
-        public int item;
-        public IntNode next;
+public class SLList<Type> {
+    private class TypeNode {
+        public Type item;
+        public TypeNode next;
 
-        public IntNode(int i, IntNode n) {
+        public TypeNode(Type i, TypeNode n) {
             item = i;
             next = n;
         }
@@ -16,35 +16,35 @@ public class SLList {
 
     private int size;
     /* The first item (if it exists) is at sentinel.next*/
-    private IntNode sentinel;
+    private TypeNode sentinel;
 
     public SLList(){
-        sentinel = new IntNode(0, null);
+        sentinel = new TypeNode(null, null);
         size = 0;
     }
-    public SLList(int x) {
-        sentinel = new IntNode(0, null);
-        sentinel.next = new IntNode(x, null);
+    public SLList(Type x) {
+        sentinel = new TypeNode(null, null);
+        sentinel.next = new TypeNode(x, null);
         size = 1;
     }
 
-    public void addFirst(int x) {
-        sentinel.next = new IntNode(x, sentinel.next);
+    public void addFirst(Type x) {
+        sentinel.next = new TypeNode(x, sentinel.next);
         size++;
     }
 
-    public int getFirst() {
+    public Type getFirst() {
         return sentinel.next.item;
     }
 
-    public void addLast(int x){
+    public void addLast(Type x){
         size++;
-        IntNode ptr = sentinel;
+        TypeNode ptr = sentinel;
 
         while (ptr.next != null){
             ptr = ptr.next;
         }
-        ptr.next = new IntNode(x, null);
+        ptr.next = new TypeNode(x, null);
     }
 
     public int size() {
@@ -52,13 +52,13 @@ public class SLList {
         return size;
     }
 
-//    private int size(IntNode p){
+//    private int size(TypeNode p){
 //        if (p.next == null) return 1;
 //        return 1 + size(p.next);
 //    }
 
     public static void main(String[] args) {
-        SLList L = new SLList(15);
+        SLList<Integer> L = new SLList<Integer>(15);
         L.addFirst(10);
         L.addFirst(5);
         L.addLast(20);
