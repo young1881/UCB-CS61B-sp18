@@ -16,4 +16,14 @@ public class Palindrome {
         }
         return true;
     }
+
+    public boolean isPalindrome(String word, CharacterComparator cc){
+        Deque<Character> tmp = wordToDeque(word);
+        while (tmp.size() >= 2) {
+            if (!cc.equalChars(tmp.removeFirst(), tmp.removeLast())) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

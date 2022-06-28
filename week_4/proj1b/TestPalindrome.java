@@ -25,6 +25,16 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("racecar"));
     }
 
+    @Test
+    public void testOffByOne(){
+        CharacterComparator cc = new OffByOne();
+        assertTrue(palindrome.isPalindrome("", cc));
+        assertTrue(palindrome.isPalindrome("a", cc));
+        assertTrue(palindrome.isPalindrome("flake", cc));
+        assertFalse(palindrome.isPalindrome("aaaaa", cc));
+        assertFalse(palindrome.isPalindrome("racecar", cc));
+    }
+
     public static void main(String[] args) {
         jh61b.junit.TestRunner.runTests("all", TestPalindrome.class);
     }
