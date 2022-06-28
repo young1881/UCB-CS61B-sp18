@@ -75,8 +75,8 @@ public class ArrayDeque<T> implements Deque<T>{
     @Override
     public T removeLast(){
         if (isEmpty()) {return null;}
-        T tmp = items[right];
-        right = (right + 1) % capacity;
+        T tmp = items[right - 1];
+        right = (right - 1) % capacity;
         if (isLowUsageRate()) {
             resize((int) (capacity * 0.5));
         }
