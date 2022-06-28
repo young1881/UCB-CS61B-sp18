@@ -88,7 +88,7 @@ public class ArrayDeque<T> {
     }
 
     private boolean isFull(){
-        return ((right - left) >= capacity);
+        return size() == capacity - 1;
     }
 
     private void resize(int newSize) {
