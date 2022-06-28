@@ -23,8 +23,8 @@ public class ArrayDeque<T> implements Deque<T>{
         if (isFull()) {
             resize((int) (capacity * 1.5));
         }
-        right = (right + 1) % capacity;
         items[right] = item;
+        right = (right + 1) % capacity;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class ArrayDeque<T> implements Deque<T>{
     }
 
     private boolean isFull(){
-        return ((right - left) >= capacity);
+        return size() == capacity - 1;
     }
 
     private void resize(int newSize) {
