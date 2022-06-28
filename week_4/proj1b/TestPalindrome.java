@@ -35,6 +35,16 @@ public class TestPalindrome {
         assertFalse(palindrome.isPalindrome("racecar", cc));
     }
 
+    @Test
+    public void testOffByN(){
+        CharacterComparator cc = new OffByN(5);
+        assertTrue(palindrome.isPalindrome("", cc));
+        assertTrue(palindrome.isPalindrome("a", cc));
+        assertTrue(palindrome.isPalindrome("bing", cc));
+        assertFalse(palindrome.isPalindrome("aabaa", cc));
+        assertFalse(palindrome.isPalindrome("noon", cc));
+    }
+
     public static void main(String[] args) {
         jh61b.junit.TestRunner.runTests("all", TestPalindrome.class);
     }
